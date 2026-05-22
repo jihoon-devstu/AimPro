@@ -1,0 +1,319 @@
+       /*stopWatch의 글꼴을 주기위한 링크 import*/
+       @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    전체 영역 디자인
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        
+#wrapper{
+    width: 1000px;
+    height: 900px;
+    margin: auto;
+}
+
+#aside{
+    width: 200px;
+    height: 800px;
+    background-color: lightgreen;
+    position: relative;
+    text-align: center;
+    float: left;
+}
+
+#content{
+    width: 800px;
+    height: 800px;
+    background-color: bisque;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+#footer{
+    width: 1000px;
+    height: 100px;
+    position: relative;
+    float: left;
+    line-height: 100px;
+    background-color: lightskyblue;
+    text-align: center;
+    font-size: 45px;
+    font-family: sans-serif;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    asside 영역의 버튼 디자인
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#aside button{
+    border: 3px solid rgba(43, 41, 41, 0.774);
+}
+
+#start,#level,#howPlay,#reset,#record{
+    width: 150px;
+    height: 80px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    난이도 선택 버튼 클릭시 content에 출력되는 div 영역
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*lev1~8을 감싸는 wrapper*/
+#wrap{
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    display: none;
+    position: absolute;
+}
+
+/*lev1~7 디자인*/
+#lev1, #lev2,#lev3,#lev4,#lev5,#lev6,#lev7{
+    width: 100%;
+    height: 80px;
+    border: 3px solid rgba(43, 41, 41, 0.774);
+    border-bottom: 0px;
+    border-radius: 4px;
+    background-color: lightskyblue;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+}
+
+/*lev8 디자인 border bottom이 있음.*/
+#lev8{
+    width: 100%;
+    height: 80px;
+    border: 3px solid rgba(43, 41, 41, 0.774);
+    border-radius: 4px;
+    background-color: lightskyblue;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+}
+
+/*현재 aisde영역에 출력되는 현재 선택한 난이도 영역 디자인*/
+#levelprint{
+    width: 150px;
+    height: 100px;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 100px;
+    margin-top: 10px;
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    게임 설명 버튼 클릭 시 content에 출력되는 영역
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*howto 전체 영역*/
+#howto{
+    width: 800px;
+    height: 800px;
+    background-color: lightgrey;
+    display: flex;
+    text-align: center;
+    display: none;
+    position: absolute;
+    z-index: 5555;
+}
+
+/*howto의 제목*/
+#howto h2{
+    font-size: 40px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/*howto의 내용*/
+#howto p{
+    font-size: 19px;
+    margin: 20px 60px;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+/*howto 하단의 닫기 버튼*/
+#closehowto{
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #888;
+    border: 2px solid #222;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    스톱워치 영역
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*watch 영역이 content로 왔다 갔다 하므로 wrapper필요*/
+#watchWrapper{
+    width: 150px;
+    height: 100px; 
+    margin: auto;
+}
+
+/*aside의 스톱워치 출력 영역*/
+#watch{
+    width: 150px;
+    height: 100px;
+    font-size: 30px;
+    line-height: 100px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    게임 종료시 및 이전 기록을 누르면 content에 출력되는 영역
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*content로 왔다갔다 하므로 wrapper 필요*/
+#gameResultWrapper{
+    width: 800px;
+    height: 800px;
+}
+
+/*게임 결과 전체 영역*/
+#gameResult{
+    width: 800px;
+    height: 800px;
+    display: none;
+    position: absolute;
+    z-index: 5555;
+}
+
+/*게임 결과 헤더에 고정되어있는 영역 (회차,난이도,걸린시간)*/
+#gameHeaderWrapper{
+    width: 800px;
+    height: 100px;
+    text-align: center;
+    font-size: 35px;
+}
+
+#record_round , #record_level{
+    width: 150px;
+    height: 100px;
+    background-color: rgb(255, 234, 209);
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    line-height: 100px;
+    box-sizing: border-box;
+    border: 3px dashed #666;
+    border-radius: 8px;
+    border-right: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#record_time{
+    width: 500px;
+    height: 100px;
+    background-color: rgb(255, 234, 209);
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    line-height: 100px;
+    box-sizing: border-box;
+    border: 3px dashed #666;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/*게임 종료시 , innerHTML이 누적되는 스코어보드 영역
+  하나의 div로 하지 않고 , 회차 난이도 성적영역으로 나누어 각각의 div에
+  innerHTML이 들어가도록 설계. 
+  (하나의 div로 할 경우 , br과 띄어쓰기가 고르게 들어가지 않는 이슈 발생.
+   해당 이슈 해결 후 , 스코어보드 영역에 스크롤을 달고 더욱 많은 레코드 누적되게 변경 필요)*/
+#scoreBoard{ 
+    width: 800px;
+    height: 600px;
+    font-size: 42px;
+    border: 3px dashed #666;
+    box-sizing: border-box;
+    border-top: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#c_round , #c_level{
+    width: 150px;
+    height: 600px;
+    float: left;
+    background-color: #c7fac7;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+#c_time{
+    width: 494px;
+    height: 600px;
+    float: left;
+    background-color: #c7fac7;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+/*게임 기록이 누적되어도 , 게임결과의 닫기 버튼의 위치는 고정되도록 버튼 wrapper 생성*/
+#buttonWrapper{
+    width: 800px;
+    height: 100px;
+    border: 3px dashed #666;
+    box-sizing: border-box;
+    border-top: none;
+    background-color: #c7fac7;
+    text-align: center;
+    line-height: 100px;
+}
+
+/*게임 결과 닫기 버튼*/
+#recordClose{
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: lightgray;
+    border: 2px solid #222;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block; 
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    각 버튼 및 div들에 마우스 hover를 부여하는 영역.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#recordClose:hover {
+    background-color: #666;
+}
+
+#howto button:hover {
+    background-color: #555;
+}
+
+#lev1:hover,
+#lev2:hover,
+#lev3:hover,
+#lev4:hover,
+#lev5:hover,
+#lev6:hover,
+#lev7:hover,
+#lev8:hover,
+#level:hover,
+#howPlay:hover,
+#start:hover,
+#reset:hover,
+#record:hover {
+    background-color: #bdbabafb;
+}
